@@ -1,0 +1,2464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NASCO - Industrial & Institutional Cleaning Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        :root {
+            --primary: #2E86AB;
+            --secondary: #A8D0E6;
+            --accent: #F76C6C;
+            --light: #F8F9FA;
+            --dark: #24305E;
+            --success: #28a745;
+            --industrial: #2E86AB;
+            --institutional: #F76C6C;
+            --livestock: #28a745;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header Styling */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            font-size: 28px;
+            color: var(--primary);
+            margin-right: 10px;
+        }
+        
+        /* New Logo Text Styling */
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1; /* Adjust line height for compact text */
+        }
+
+        .logo h1 {
+            font-size: 24px;
+            color: var(--dark);
+            margin: 0;
+            font-weight: 700;
+        }
+
+        .logo .tagline {
+            font-size: 11px;
+            /* Smaller font for the tagline */
+            color: #555;
+            margin-top: 2px;
+            font-weight: 500;
+        }
+        
+        .logo .trust-statement {
+            font-size: 10px;
+            /* Even smaller font for the trust statement */
+            color: var(--accent);
+            margin-top: 2px;
+            font-weight: 600;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+        
+        .cta-button {
+            background-color: #800080;
+            /* Purple */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .cta-button:hover {
+            background-color: #660066;
+            /* Darker purple on hover */
+        }
+        
+        /* Hero Section */
+        .hero {
+            /* Updated Image URL */
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1642505172378-a6f5e5b15580?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            margin-top: 70px;
+            /* Adjusted margin to accommodate taller header if needed */
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+        
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .btn {
+            padding: 12px 30px;
+            border-radius: 5px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: #257293;
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .btn-secondary:hover {
+            background-color: white;
+            color: var(--dark);
+        }
+        
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.8);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 2% auto;
+            padding: 0;
+            border: 1px solid #888;
+            width: 90%;
+            max-width: 1100px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            position: relative;
+            animation: slideIn 0.3s;
+            display: flex;
+            flex-direction: column;
+            max-height: 90vh;
+        }
+
+        @keyframes slideIn {
+            from {transform: translateY(-50px); opacity: 0;}
+            to {transform: translateY(0); opacity: 1;}
+        }
+
+        .close-modal {
+            color: #555;
+            font-size: 28px;
+            font-weight: bold;
+            position: absolute;
+            right: 15px;
+            top: 10px;
+            cursor: pointer;
+            z-index: 100;
+            transition: color 0.3s;
+            background: rgba(255,255,255,0.8);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .close-modal:hover {
+            color: #000;
+            background: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .modal-body {
+            display: flex;
+            flex: 1;
+            overflow: hidden;
+        }
+
+        .modal-gallery {
+            flex: 0 0 40%;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-right: 1px solid #eee;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .main-image-container {
+            width: 100%;
+            margin-bottom: 15px;
+            background: white;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        .main-image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .thumbnail-container {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .thumbnail {
+            width: 70px;
+            height: 70px;
+            object-fit: cover;
+            cursor: pointer;
+            border: 2px solid transparent;
+            border-radius: 4px;
+            opacity: 0.7;
+            transition: all 0.2s;
+            background: white;
+        }
+
+        .thumbnail:hover, .thumbnail.active {
+            border-color: var(--primary);
+            opacity: 1;
+        }
+
+        .modal-details {
+            flex: 1;
+            padding: 30px;
+            overflow-y: auto;
+        }
+
+        .modal-details h2 {
+            color: var(--dark);
+            margin-bottom: 10px;
+            font-size: 24px;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 10px;
+        }
+
+        .modal-details h3 {
+            color: var(--primary);
+            font-size: 18px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .modal-details h4 {
+            color: #444;
+            font-size: 16px;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .modal-details p {
+            margin-bottom: 10px;
+            line-height: 1.6;
+            color: #555;
+            font-size: 15px;
+        }
+
+        .modal-details ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+            list-style-type: disc;
+        }
+
+        .modal-details li {
+            margin-bottom: 5px;
+            color: #555;
+            font-size: 15px;
+        }
+        
+        .product-popup-link {
+            color: var(--primary);
+            text-decoration: underline;
+            cursor: pointer;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        
+        .product-popup-link:hover {
+            color: var(--dark);
+        }
+
+        @media (max-width: 992px) {
+            .modal-body {
+                flex-direction: column;
+                overflow-y: auto;
+            }
+            
+            .modal-content {
+                margin: 0;
+                width: 100%;
+                height: 100%;
+                border-radius: 0;
+                max-height: none;
+            }
+            
+            .modal-gallery {
+                flex: none;
+                border-right: none;
+                border-bottom: 1px solid #eee;
+            }
+            
+            .modal-details {
+                flex: none;
+                overflow-y: visible;
+            }
+        }
+
+        /* Categories Section */
+        .categories {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .category-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .tab-btn {
+            padding: 12px 25px;
+            background-color: var(--light);
+            border: none;
+            border-radius: 5px;
+            margin: 0 10px 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .tab-btn.active {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .tab-btn.industrial.active {
+            background-color: var(--industrial);
+        }
+        
+        .tab-btn.institutional.active {
+            background-color: var(--institutional);
+        }
+        
+        .tab-btn.livestock.active {
+            background-color: var(--livestock);
+        }
+        
+        .category-content {
+            display: none;
+        }
+        
+        .category-content.active {
+            display: block;
+        }
+        
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+        
+        .category-card {
+            background-color: var(--light);
+            border-radius: 8px;
+            padding: 30px;
+            text-align: left;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+            border-top: 4px solid var(--primary);
+            height: 100%;
+        }
+        
+        .category-card.industrial {
+            border-top-color: var(--industrial);
+        }
+        
+        .category-card.institutional {
+            border-top-color: var(--institutional);
+        }
+        
+        .category-card.livestock {
+            border-top-color: var(--livestock);
+        }
+        
+        .category-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .category-icon {
+            font-size: 40px;
+            color: var(--primary);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .category-card.industrial .category-icon {
+            color: var(--industrial);
+        }
+        
+        .category-card.institutional .category-icon {
+            color: var(--institutional);
+        }
+        
+        .category-card.livestock .category-icon {
+            color: var(--livestock);
+        }
+        
+        .category-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: var(--dark);
+            text-align: center;
+        }
+        
+        .category-card p.cat-desc {
+            color: #666;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 0.95rem;
+        }
+        
+        /* New Accordion Styling for Product List */
+        .product-accordion {
+            border-top: 1px solid #ccc;
+            margin-top: 15px;
+        }
+        
+        .accordion-item {
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .accordion-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--dark);
+            transition: color 0.3s;
+        }
+
+        .accordion-header:hover {
+            color: var(--primary);
+        }
+
+        .accordion-header i {
+            margin-left: 10px;
+            transition: transform 0.3s;
+        }
+
+        .accordion-header.active i {
+            transform: rotate(180deg);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+            padding-bottom: 0;
+        }
+
+        .accordion-content.open {
+            /* This will be set dynamically by JS */
+            padding-bottom: 10px;
+        }
+
+        .accordion-content ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 5px;
+        }
+
+        .accordion-content li {
+            padding: 5px 0;
+            font-size: 14px;
+            line-height: 1.5;
+            color: #444;
+            border-top: 1px dashed #eee;
+        }
+        
+        .accordion-content li:first-child {
+            border-top: none;
+        }
+
+        /* --- START OF NEW CONTACT SECTION STYLES (MATCHING IMAGE) --- */
+        .contact {
+            padding: 80px 0;
+            /* تصویر جیسا گہرا نیلا گریڈینٹ */
+            background: linear-gradient(135deg, #1c5b7a, #101935); 
+            color: white;
+        }
+
+        .contact-grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .contact-col {
+            /* کارڈز کو تصویر جیسا گلاس ایفیکٹ دینے کے لیے */
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 8px;
+            height: 100%;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            backdrop-filter: blur(5px); /* Add a slight blur for better glass effect */
+        }
+
+        .contact-col h3 {
+            font-size: 20px; /* تصویر کے مطابق فونٹ سائز */
+            margin-bottom: 15px;
+            color: #e0e0e0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 1px solid rgba(255,255,255,0.3);
+            padding-bottom: 10px;
+        }
+
+        .contact-col h3 i {
+            font-size: 18px; /* آئیکن کا سائز */
+        }
+
+        /* Locations Grid Boxes */
+        .locations-grid-boxes {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* دو کالم */
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .loc-box {
+            background: rgba(255, 255, 255, 0.15); /* ہلکا سفید بیک گراؤنڈ */
+            padding: 10px 5px;
+            text-align: center;
+            border-radius: 4px;
+            font-size: 13px;
+            color: white;
+            transition: background 0.3s;
+        }
+
+        .loc-box:hover {
+            background: rgba(255, 255, 255, 0.25);
+        }
+
+        /* Contact Details Styling */
+        .contact-sub-head {
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: white;
+            margin-top: 20px;
+        }
+
+        .contact-text {
+            font-size: 15px;
+            line-height: 1.5;
+            color: #ddd;
+            margin-bottom: 15px;
+        }
+
+        .email-link {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 15px;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        /* Certified Badge Styling */
+        .certified-text {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #ddd;
+            margin-bottom: 25px;
+        }
+
+        .trusted-badge {
+            background-color: #ff6b6b; /* تصویر والا لال/کورل رنگ */
+            color: white;
+            padding: 12px 20px;
+            border-radius: 4px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-size: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+        }
+        
+        /* --- END OF NEW CONTACT SECTION STYLES --- */
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 40px 0 20px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 0;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: white;
+            transition: background-color 0.3s;
+            font-size: 20px;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--accent);
+        }
+        
+        .copyright {
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #ccc;
+            font-size: 14px;
+        }
+
+        /* Responsive Design */
+        @media (min-width: 992px) {
+            /* This section is retained for desktop rules */
+        }
+        
+        @media (max-width: 992px) {
+            .hero h2 {
+                font-size: 36px;
+            }
+            .contact-grid-3 {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                padding: 15px 0;
+            }
+            
+            nav ul {
+                margin: 15px 0;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero {
+                margin-top: 120px;
+                height: auto;
+                padding: 80px 0;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+            
+            .btn {
+                width: 80%;
+            }
+            
+            .category-tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .tab-btn {
+                width: 80%;
+                margin-bottom: 10px;
+            }
+            
+            .header-buttons {
+                margin-top: 15px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .category-grid, .product-showcase {
+                grid-template-columns: 1fr;
+            }
+
+            .logo-text {
+                align-items: center;
+            }
+            
+            .logo .tagline, .logo .trust-statement {
+                text-align: center;
+                font-size: 10px; 
+            }
+        }
+        
+        /* New Styles for Updates - Retaining existing other new styles */
+        /* About Section */
+        .about {
+            padding: 80px 0;
+            background-color: #f9f9f9;
+        }
+        
+        .about-text {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: justify;
+            font-size: 18px;
+            color: #555;
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+        }
+
+        /* Header Buttons */
+        .header-buttons {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .wa-button-header {
+            background-color: #25D366;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            transition: background-color 0.3s;
+            font-size: 14px;
+        }
+
+        .wa-button-header:hover {
+            background-color: #128C7E;
+        }
+        
+        .wa-button-header i {
+            margin-right: 8px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-pump-soap"></i>
+                <div class="logo-text">
+                    <h1>NASCO</h1>
+                    <p class="tagline">FOOD-grade Industrial CLEANING & HYGIENE Chemicals</p>
+                    <p class="trust-statement">Trusted Since 2006</p>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#categories">Products</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-buttons">
+                <a href="https://wa.me/923321444065" target="_blank" class="wa-button-header">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+                <button class="cta-button" onclick="document.querySelector('#contact').scrollIntoView({behavior: 'smooth'});">
+                    Inquire Now
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeProductModal()"><i class="fas fa-times"></i></span>
+            <div class="modal-body">
+                <div class="modal-gallery">
+                    <div class="main-image-container">
+                        <img id="mainProductImage" class="main-image" src="" alt="Product Image">
+                    </div>
+                    <div id="thumbnailContainer" class="thumbnail-container">
+                        </div>
+                </div>
+                <div class="modal-details">
+                    <h2 id="modalTitle"></h2>
+                    <div id="modalDescription"></div>
+                    <a href="https://wa.me/923321444065" target="_blank" class="btn btn-primary" style="margin-top: 20px; display: inline-block;">
+                        <i class="fab fa-whatsapp"></i> Inquire via WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <h2>Industrial Cleaning & Hygiene Solutions</h2>
+            <p>Providing HALAL Certified and FOOD-grade Industrial CLEANING & HYGIENE Chemicals for Industrial Hygiene and Food Safety.</p>
+            <div class="hero-buttons">
+                <a href="#categories" class="btn btn-primary">View Products</a>
+                <a href="#contact" class="btn btn-secondary">Contact Us</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="categories" id="categories">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Specialized Product Categories</h2>
+                <p>We offer tailored cleaning and hygiene solutions for various demanding industrial and institutional sectors, ensuring food safety and operational efficiency.</p>
+            </div>
+            
+            <div class="category-tabs">
+                <button class="tab-btn industrial active" data-category="industrial">Industrial Hygiene</button>
+                <button class="tab-btn institutional" data-category="institutional">Institutional & Household</button>
+                <button class="tab-btn livestock" data-category="livestock">Livestock & Car Care</button>
+            </div>
+
+            <!-- Industrial Products -->
+            <div class="category-content industrial active">
+                <div class="category-grid">
+                    
+                    <!-- Food Industry Card -->
+                    <div class="category-card industrial">
+                        <div class="category-icon">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <h3>Food Industry</h3>
+                        <p class="cat-desc">Specialized cleaning and sanitation products for the food industry</p>
+                        <div class="product-accordion">
+                            <div class="accordion-item">
+                                <div class="accordion-header">
+                                    <span>View Product List (7 Items)</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="accordion-content">
+                                    <ul>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('sodiumhypo')" class="product-popup-link">Nasco Sodium Hypochlorite – 12% Active Chlorine | 5Litre-30Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('safon')" class="product-popup-link">Nasco Safon Food-safe & food-grade Liquid Hand Soap | 500Ml-10Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('proclean')" class="product-popup-link">Nasco PRO-CLEAN Chlorinated Foaming Drain Cleaner & Sanitizer | 500Ml-10Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('generalcleandc')" class="product-popup-link">Nasco General Clean-DC | Cleaner - Disinfectant - Fungicide | 500Ml-10Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('ipa70')" class="product-popup-link">Nasco IPA 70% Surface Disinfectant | 500Ml-20Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('acidoclean')" class="product-popup-link">Nasco Acid-O-Clean - Non-Foaming Acidic CIP Cleaner | 1Litre-10Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('a420')" class="product-popup-link">Nasco A-420 Alkaline Cleaner - Non-Foaming Alkaline CIP Cleaner | 1Litre-20Litre</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Beverage Industry Card -->
+                    <div class="category-card industrial">
+                        <div class="category-icon">
+                            <i class="fas fa-wine-bottle"></i>
+                        </div>
+                        <h3>Beverage Industry</h3>
+                        <p class="cat-desc">Specialized cleaning and sanitation products for the beverage industry</p>
+                        <div class="product-accordion">
+                            <div class="accordion-item">
+                                <div class="accordion-header">
+                                    <span>View Product List (5 Items)</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="accordion-content">
+                                    <ul>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('generalcleandc')" class="product-popup-link">Nasco General Clean-DC | Cleaner - Disinfectant - Fungicide | 500Ml-10Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('safon')" class="product-popup-link">Nasco Safon Food-safe & food-grade Liquid Hand Soap | 500Ml-10Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('proclean')" class="product-popup-link">Nasco PRO-CLEAN Chlorinated Foaming Drain Cleaner & Sanitizer | 500Ml-10Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('acidoclean')" class="product-popup-link">Nasco Acid-O-Clean - Non-Foaming Acidic CIP Cleaner | 1Litre-10Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('a420')" class="product-popup-link">Nasco A-420 Alkaline Cleaner - Non-Foaming Alkaline CIP Cleaner | 1Litre-20Litre</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Pharmaceuticals Card -->
+                    <div class="category-card industrial">
+                        <div class="category-icon">
+                            <i class="fas fa-pills"></i>
+                        </div>
+                        <h3>Pharmaceuticals</h3>
+                        <p class="cat-desc">Sterilization and cleaning products for pharmaceutical industry</p>
+                        <div class="product-accordion">
+                            <div class="accordion-item">
+                                <div class="accordion-header">
+                                    <span>View Product List (7 Items)</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="accordion-content">
+                                    <ul>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('detartreur')" class="product-popup-link">Nasco DÉTARTREUR (Rust, Scale & Deposits Remover | 1L – 20L)</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('clr')" class="product-popup-link">Nasco CLR (Calcium, Limescale & Rust Remover | 500ml – 5L)</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('generalcleandc')" class="product-popup-link">Nasco General Clean-DC (Cleaner - Disinfectant - Fungicide | 500ml – 10L)</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('proclean')" class="product-popup-link">Nasco PRO-CLEAN (Chlorinated Foaming Drain Cleaner & Sanitizer | 500ml – 10L)</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('safon')" class="product-popup-link">Nasco Safon Food-safe (Food-grade Liquid Hand Soap | 500ml – 10L)</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('a420')" class="product-popup-link">Nasco A-420 Alkaline Cleaner (Non-Foaming Alkaline CIP Cleaner | 1L – 20L)</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('acidoclean')" class="product-popup-link">Nasco Acid-O-Clean (Non-Foaming Acidic CIP Cleaner | 1L – 10L)</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Meat & Slaughter House Card -->
+                    <div class="category-card industrial">
+                        <div class="category-icon">
+                            <i class="fas fa-drumstick-bite"></i>
+                        </div>
+                        <h3>Meat & Slaughter House</h3>
+                        <p class="cat-desc">Special cleaning and disinfection products for meat industry</p>
+                        <div class="product-accordion">
+                            <div class="accordion-item">
+                                <div class="accordion-header">
+                                    <span>View Product List (12 Items)</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="accordion-content">
+                                    <ul>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('lustrex')" class="product-popup-link">Nasco Lustrex (Stainless Steel Rust Cleaner and Shiner | 500ml – 5L)</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('lucid')" class="product-popup-link">Nasco LUCID (Tile & Grout Cleaner | 500ml – 10L)</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('marmitax')" class="product-popup-link">Nasco Marmitax (Dish Washing Liquid Detergent | 500ml – 10L)</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('windeze')" class="product-popup-link">Nasco Windeze (Glass & Multi-Surface Cleaner | 500ml – 10L)</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('sanifect')" class="product-popup-link">Nasco Sanifect (Bathroom Cleaner | 500ml – 10L)</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('grillclean')" class="product-popup-link">Nasco Grill Clean (Alkaline Oven and Grill Cleaner | 500ml – 5L)</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('multiphen')" class="product-popup-link">Nasco Multi-Phen (Concentrated Phenyl | 500ml – 10L)</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('drainx')" class="product-popup-link">Nasco Drain-X (Heavy Duty Alkaline Drain Opener | 1L – 10L)</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('fabriclean')" class="product-popup-link">Nasco Fabri-Clean (Upholstery and Leather Cleaner | 500ml – 10L)</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('liquidlaundry')" class="product-popup-link">Nasco Liquid Laundry (Anti-Fungal and Anti-Bacterial | 500ml – 10L)</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('woodglow')" class="product-popup-link">Nasco Wood Glow (Premium Wood Polish Spray | 500ml – 5L)</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('frigo')" class="product-popup-link">Nasco FRIGO (Fridge, Freezer & Ice Cleaner | 500ml – 5L)</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Dairy Products Card -->
+                    <div class="category-card industrial">
+                        <div class="category-icon">
+                            <i class="fas fa-cheese"></i>
+                        </div>
+                        <h3>Dairy Products</h3>
+                        <p class="cat-desc">Specialized cleaning and sanitation products for dairy industry</p>
+                        <div class="product-accordion">
+                            <div class="accordion-item">
+                                <div class="accordion-header">
+                                    <span>View Product List (4 Items)</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="accordion-content">
+                                    <ul>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('detartreur')" class="product-popup-link">Nasco DÉTARTREUR (Rust, Scale & Deposits Remover | 1L – 20L)</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('clr')" class="product-popup-link">Nasco CLR (Calcium, Limescale & Rust Remover | 500ml – 5L)</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('acidoclean')" class="product-popup-link">Nasco Acid-O-Clean (Non-Foaming Acidic CIP Cleaner | 1L – 10L)</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('a420')" class="product-popup-link">Nasco A-420 Alkaline Cleaner (Non-Foaming Alkaline CIP Cleaner | 1L – 20L)</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Confectionery, Bakery & Sweets Card -->
+                    <div class="category-card industrial">
+                        <div class="category-icon">
+                            <i class="fas fa-cookie"></i>
+                        </div>
+                        <h3>Confectionery, Bakery & Sweets</h3>
+                        <p class="cat-desc">Safe cleaning products for sweets and bakery industry</p>
+                        <div class="product-accordion">
+                            <div class="accordion-item">
+                                <div class="accordion-header">
+                                    <span>View Product List (4 Items)</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="accordion-content">
+                                    <ul>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('detartreur')" class="product-popup-link">Nasco DÉTARTREUR (Rust, Scale & Deposits Remover | 1L – 20L)</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('clr')" class="product-popup-link">Nasco CLR (Calcium, Limescale & Rust Remover | 500ml – 5L)</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('acidoclean')" class="product-popup-link">Nasco Acid-O-Clean (Non-Foaming Acidic CIP Cleaner | 1L – 10L)</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('a420')" class="product-popup-link">Nasco A-420 Alkaline Cleaner (Non-Foaming Alkaline CIP Cleaner | 1L – 20L)</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Car Care Card -->
+                    <div class="category-card industrial">
+                        <div class="category-icon">
+                            <i class="fas fa-car"></i>
+                        </div>
+                        <h3>Car Care</h3>
+                        <p class="cat-desc">Special cleaning and polishing products for cars and vehicles</p>
+                        <div class="product-accordion">
+                            <div class="accordion-item">
+                                <div class="accordion-header">
+                                    <span>View Product List (12 Items)</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="accordion-content">
+                                    <ul>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('windeze')" class="product-popup-link">Nasco Windeze Glass & Multi-Surface Cleaner | 500Ml-10Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('carwash')" class="product-popup-link">Nasco Car Wash Shampoo Graphene Coated | 1Litre-30Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('aerogel')" class="product-popup-link">Nasco AERO-GEL – Gel Air Freshener | 1 Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('apc_disinfectant')" class="product-popup-link">Nasco All Purpose Car Cleaner & Disinfectant Spray | 1Litre-30Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('apc_spray')" class="product-popup-link">Nasco All Purpose Car Cleaner Spray | 1Litre-30Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('interior_gel')" class="product-popup-link">Nasco All Purpose Interior Cleaning & Disinfectant Gel | 1Litre-30Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('carpex')" class="product-popup-link">Nasco CARPEX – Car Carpet Cleaning Shampoo | 1Litre-30Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('dashx')" class="product-popup-link">Nasco DASHX – Dashboard Cleaner & Polish | 1Litre-30Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('degron')" class="product-popup-link">Nasco DEGRON – Car Engine Degreaser | 1Litre-30Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('leathique')" class="product-popup-link">Nasco LEATHIQUE – Leather Cleaner & Conditioner | 1Litre-30Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('tirex')" class="product-popup-link">Nasco TIREX – Car Wheel Cleaner | 1Litre-30Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('thermoguard')" class="product-popup-link">Nasco Thermo-Guard – Anti-Rust & Anti-Freeze Radiator Coolant | 1Litre-30Litre</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Rice & Flour Card -->
+                    <div class="category-card industrial">
+                        <div class="category-icon">
+                            <i class="fas fa-wheat-alt"></i>
+                        </div>
+                        <h3>Rice & Flour</h3>
+                        <p class="cat-desc">Specialized cleaning products for rice and flour industry</p>
+                        <div class="product-accordion">
+                            <div class="accordion-item">
+                                <div class="accordion-header">
+                                    <span>View Product List (11 Items)</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="accordion-content">
+                                    <ul>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('lustrex')" class="product-popup-link">Nasco Lustrex Stainless Steel Rust Cleaner and Shiner | 500Ml-5Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('lucid')" class="product-popup-link">Nasco LUCID (Bathrooms and Kitchen) Tile & Grout Cleaner | 500Ml-10Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('marmitax')" class="product-popup-link">Nasco Marmitax Dish Washing Liquid Detergent for Pots and Pans | 500Ml-10Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('windeze')" class="product-popup-link">Nasco Windeze Glass & Multi-Surface Cleaner | 500Ml-10Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('sanifect')" class="product-popup-link">Nasco Sanifect Bathroom Cleaner | 500Ml-10Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('grillclean')" class="product-popup-link">Nasco Grill Clean Alkaline Oven and Grill Cleaner | 500Ml-5Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('multiphen')" class="product-popup-link">Nasco Multi-Phen Concentrated Phenyl | 500Ml-10Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('drainx')" class="product-popup-link">Nasco Drain-X Heavy Duty Alkaline Drain Opener / Cleaner | 1Litre-10Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('fabriclean')" class="product-popup-link">Nasco Fabri-Clean Upholstery and Leather Cleaner | 500Ml-10Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('liquidlaundry')" class="product-popup-link">Nasco Liquid Laundry Anti-Fungal and Anti-Bacterial | 500Ml-10Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('woodglow')" class="product-popup-link">Nasco Wood Glow Premium Wood Polish Spray | 500Ml-5Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('frigo')" class="product-popup-link">Nasco FRIGO Fridge, Freezer & Ice Cleaner | 500Ml-5Litre</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                     <!-- NEW Sea Food & Fisheries Card -->
+                     <div class="category-card industrial">
+                        <div class="category-icon">
+                            <i class="fas fa-fish"></i>
+                        </div>
+                        <h3>Sea Food & Fisheries</h3>
+                        <p class="cat-desc">Special cleaning solutions for seafood processing.</p>
+                        <div class="product-accordion">
+                            <div class="accordion-item">
+                                <div class="accordion-header">
+                                    <span>View Product List (12 Items)</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="accordion-content">
+                                    <ul>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('lustrex')" class="product-popup-link">Nasco Lustrex Stainless Steel Rust Cleaner and Shiner | 500Ml-5Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('lucid')" class="product-popup-link">Nasco LUCID (Bathrooms and Kitchen) Tile & Grout Cleaner | 500Ml-10Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('marmitax')" class="product-popup-link">Nasco Marmitax Dish Washing Liquid Detergent for Pots and Pans | 500Ml-10Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('windeze')" class="product-popup-link">Nasco Windeze Glass & Multi-Surface Cleaner | 500Ml-10Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('sanifect')" class="product-popup-link">Nasco Sanifect Bathroom Cleaner | 500Ml-10Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('grillclean')" class="product-popup-link">Nasco Grill Clean Alkaline Oven and Grill Cleaner | 500Ml-5Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('multiphen')" class="product-popup-link">Nasco Multi-Phen Concentrated Phenyl | 500Ml-10Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('drainx')" class="product-popup-link">Nasco Drain-X Heavy Duty Alkaline Drain Opener / Cleaner | 1Litre-10Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('fabriclean')" class="product-popup-link">Nasco Fabri-Clean Upholstery and Leather Cleaner | 500Ml-10Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('liquidlaundry')" class="product-popup-link">Nasco Liquid Laundry Anti-Fungal and Anti-Bacterial | 500Ml-10Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('woodglow')" class="product-popup-link">Nasco Wood Glow Premium Wood Polish Spray | 500Ml-5Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('frigo')" class="product-popup-link">Nasco FRIGO Fridge, Freezer & Ice Cleaner | 500Ml-5Litre</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            
+            <!-- Institutional Products -->
+            <div class="category-content institutional">
+                <div class="category-grid">
+                    <!-- Hotel, Restaurants Card -->
+                    <div class="category-card institutional">
+                        <div class="category-icon">
+                            <i class="fas fa-hotel"></i>
+                        </div>
+                        <h3>Hotel, Restaurants</h3>
+                        <p class="cat-desc">Cleaning solutions for hotels and restaurants.</p>
+                        <div class="product-accordion">
+                            <div class="accordion-item">
+                                <div class="accordion-header">
+                                    <span>View Product List (12 Items)</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="accordion-content">
+                                    <ul>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('lustrex')" class="product-popup-link">Nasco Lustrex Stainless Steel Rust Cleaner and Shiner | 500Ml-5Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('lucid')" class="product-popup-link">Nasco LUCID (Bathrooms and Kitchen) Tile & Grout Cleaner | 500Ml-10Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('marmitax')" class="product-popup-link">Nasco Marmitax Dish Washing Liquid Detergent for Pots and Pans | 500Ml-10Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('windeze')" class="product-popup-link">Nasco Windeze Glass & Multi-Surface Cleaner | 500Ml-10Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('sanifect')" class="product-popup-link">Nasco Sanifect Bathroom Cleaner | 500Ml-10Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('grillclean')" class="product-popup-link">Nasco Grill Clean Alkaline Oven and Grill Cleaner | 500Ml-5Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('multiphen')" class="product-popup-link">Nasco Multi-Phen Concentrated Phenyl | 500Ml-10Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('drainx')" class="product-popup-link">Nasco Drain-X Heavy Duty Alkaline Drain Opener / Cleaner | 1Litre-10Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('fabriclean')" class="product-popup-link">Nasco Fabri-Clean Upholstery and Leather Cleaner | 500Ml-10Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('liquidlaundry')" class="product-popup-link">Nasco Liquid Laundry Anti-Fungal and Anti-Bacterial | 500Ml-10Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('woodglow')" class="product-popup-link">Nasco Wood Glow Premium Wood Polish Spray | 500Ml-5Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('frigo')" class="product-popup-link">Nasco FRIGO Fridge, Freezer & Ice Cleaner | 500Ml-5Litre</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hospitals & Health Care Card -->
+                    <div class="category-card institutional">
+                        <div class="category-icon">
+                            <i class="fas fa-hospital"></i>
+                        </div>
+                        <h3>Hospitals & Health Care</h3>
+                        <p class="cat-desc">Specialized sanitation for medical environments.</p>
+                        <div class="product-accordion">
+                            <div class="accordion-item">
+                                <div class="accordion-header">
+                                    <span>View Product List (12 Items)</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="accordion-content">
+                                    <ul>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('lustrex')" class="product-popup-link">Nasco Lustrex Stainless Steel Rust Cleaner and Shiner | 500Ml-5Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('windeze')" class="product-popup-link">Nasco Windeze Glass & Multi-Surface Cleaner | 500Ml-10Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('sanifect')" class="product-popup-link">Nasco Sanifect Bathroom Cleaner | 500Ml-10Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('multiphen')" class="product-popup-link">Nasco Multi-Phen Concentrated Phenyl | 500Ml-10Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('instrumilk')" class="product-popup-link">Nasco Instru-Milk Instrument Lubricant & Corrosion Protector | 500Ml-10Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('drainx')" class="product-popup-link">Nasco Drain-X Heavy Duty Alkaline Drain Opener / Cleaner | 1Litre-10Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('liquidlaundry')" class="product-popup-link">Nasco Liquid Laundry Anti-Fungal and Anti-Bacterial | 500Ml-10Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('chlors')" class="product-popup-link">Nasco CHLOR-S Cleaner & Disinfectant for Blood Spills and Operation Rooms | 500Ml-10Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('neutrasoak')" class="product-popup-link">Nasco Neutra-Soak Pre-Soaking Solution for Medical Instruments | 500Ml-10Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('sanigel')" class="product-popup-link">Nasco Sanigel 80% Alcohol Hand Sanitiser | 500Ml-10Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('proscrub')" class="product-popup-link">Nasco PRO-SCRUB Surgical Scrub Soap – Antimicrobial Hand & Skin Cleanser | 500Ml-10Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('generalcleanf')" class="product-popup-link">Nasco General Clean "F" Floor Cleaner | Highly Concentrated - 500Ml-5Litre</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Commercial Buildings Card (Replaces Schools & Offices) -->
+                    <div class="category-card institutional">
+                        <div class="category-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <h3>Commercial Buildings</h3>
+                        <p class="cat-desc">General cleaning for offices, schools, and plazas.</p>
+                        <div class="product-accordion">
+                            <div class="accordion-item">
+                                <div class="accordion-header">
+                                    <span>View Product List (12 Items)</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="accordion-content">
+                                    <ul>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('lustrex')" class="product-popup-link">Nasco Lustrex Stainless Steel Rust Cleaner and Shiner | 500Ml-5Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('lucid')" class="product-popup-link">Nasco LUCID (Bathrooms and Kitchen) Tile & Grout Cleaner | 500Ml-10Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('marmitax')" class="product-popup-link">Nasco Marmitax Dish Washing Liquid Detergent for Pots and Pans | 500Ml-10Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('windeze')" class="product-popup-link">Nasco Windeze Glass & Multi-Surface Cleaner | 500Ml-10Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('sanifect')" class="product-popup-link">Nasco Sanifect Bathroom Cleaner | 500Ml-10Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('grillclean')" class="product-popup-link">Nasco Grill Clean Alkaline Oven and Grill Cleaner | 500Ml-5Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('multiphen')" class="product-popup-link">Nasco Multi-Phen Concentrated Phenyl | 500Ml-10Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('drainx')" class="product-popup-link">Nasco Drain-X Heavy Duty Alkaline Drain Opener / Cleaner | 1Litre-10Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('fabriclean')" class="product-popup-link">Nasco Fabri-Clean Upholstery and Leather Cleaner | 500Ml-10Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('liquidlaundry')" class="product-popup-link">Nasco Liquid Laundry Anti-Fungal and Anti-Bacterial | 500Ml-10Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('woodglow')" class="product-popup-link">Nasco Wood Glow Premium Wood Polish Spray | 500Ml-5Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('frigo')" class="product-popup-link">Nasco FRIGO Fridge, Freezer & Ice Cleaner | 500Ml-5Litre</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+
+                </div>
+            </div>
+            
+            <!-- Livestock Products -->
+            <div class="category-content livestock">
+                <div class="category-grid">
+                    <div class="category-card livestock">
+                        <div class="category-icon">
+                            <i class="fas fa-cow"></i>
+                        </div>
+                        <h3>Dairy Farm Hygiene</h3>
+                        <p class="cat-desc">Effective cleaning for milking equipment and animal housing.</p>
+                        <div class="product-accordion">
+                            <div class="accordion-item">
+                                <div class="accordion-header">
+                                    <span>View Product List (12 Items)</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="accordion-content">
+                                    <ul>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('lustrex')" class="product-popup-link">Nasco Lustrex Stainless Steel Rust Cleaner and Shiner | 500Ml-5Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('lucid')" class="product-popup-link">Nasco LUCID (Bathrooms and Kitchen) Tile & Grout Cleaner | 500Ml-10Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('marmitax')" class="product-popup-link">Nasco Marmitax Dish Washing Liquid Detergent for Pots and Pans | 500Ml-10Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('windeze')" class="product-popup-link">Nasco Windeze Glass & Multi-Surface Cleaner | 500Ml-10Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('sanifect')" class="product-popup-link">Nasco Sanifect Bathroom Cleaner | 500Ml-10Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('grillclean')" class="product-popup-link">Nasco Grill Clean Alkaline Oven and Grill Cleaner | 500Ml-5Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('multiphen')" class="product-popup-link">Nasco Multi-Phen Concentrated Phenyl | 500Ml-10Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('drainx')" class="product-popup-link">Nasco Drain-X Heavy Duty Alkaline Drain Opener / Cleaner | 1Litre-10Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('fabriclean')" class="product-popup-link">Nasco Fabri-Clean Upholstery and Leather Cleaner | 500Ml-10Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('liquidlaundry')" class="product-popup-link">Nasco Liquid Laundry Anti-Fungal and Anti-Bacterial | 500Ml-10Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('woodglow')" class="product-popup-link">Nasco Wood Glow Premium Wood Polish Spray | 500Ml-5Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('frigo')" class="product-popup-link">Nasco FRIGO Fridge, Freezer & Ice Cleaner | 500Ml-5Litre</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="category-card livestock">
+                        <div class="category-icon">
+                            <i class="fas fa-sheep"></i>
+                        </div>
+                        <h3>Poultry & Animal Housing</h3>
+                        <p class="cat-desc">Disinfectants and cleaners for poultry and livestock sheds.</p>
+                        <div class="product-accordion">
+                            <div class="accordion-item">
+                                <div class="accordion-header">
+                                    <span>View Product List (12 Items)</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="accordion-content">
+                                    <ul>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('lustrex')" class="product-popup-link">Nasco Lustrex Stainless Steel Rust Cleaner and Shiner | 500Ml-5Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('lucid')" class="product-popup-link">Nasco LUCID (Bathrooms and Kitchen) Tile & Grout Cleaner | 500Ml-10Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('marmitax')" class="product-popup-link">Nasco Marmitax Dish Washing Liquid Detergent for Pots and Pans | 500Ml-10Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('windeze')" class="product-popup-link">Nasco Windeze Glass & Multi-Surface Cleaner | 500Ml-10Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('sanifect')" class="product-popup-link">Nasco Sanifect Bathroom Cleaner | 500Ml-10Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('grillclean')" class="product-popup-link">Nasco Grill Clean Alkaline Oven and Grill Cleaner | 500Ml-5Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('multiphen')" class="product-popup-link">Nasco Multi-Phen Concentrated Phenyl | 500Ml-10Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('drainx')" class="product-popup-link">Nasco Drain-X Heavy Duty Alkaline Drain Opener / Cleaner | 1Litre-10Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('fabriclean')" class="product-popup-link">Nasco Fabri-Clean Upholstery and Leather Cleaner | 500Ml-10Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('liquidlaundry')" class="product-popup-link">Nasco Liquid Laundry Anti-Fungal and Anti-Bacterial | 500Ml-10Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('woodglow')" class="product-popup-link">Nasco Wood Glow Premium Wood Polish Spray | 500Ml-5Litre</a></li>
+                                        <li><a href="javascript:void(0)" onclick="openProductModal('frigo')" class="product-popup-link">Nasco FRIGO Fridge, Freezer & Ice Cleaner | 500Ml-5Litre</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+    </section> <section class="about" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Mission & Vision</h2>
+            </div>
+            <div class="about-text">
+                <p>NASCO Hygiene is a leading provider of high-quality, professional cleaning and hygiene solutions, trusted since 2006. Our mission is to enhance public health and safety across various sectors including food processing, dairy, beverages, and institutional environments. We are committed to supplying HALAL Certified and FOOD-grade industrial chemicals that meet the stringent demands of modern hygiene standards.</p>
+                <p>We believe in sustainability, quality, and reliability. By focusing on scientific research and development, we ensure our products are effective, safe for the environment, and safe for use around food production. Partner with NASCO for a cleaner, safer, and more hygienic future.</p>
+            </div>
+        </div>
+    </section> <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title" style="margin-bottom: 20px;">
+                 <h2 style="color: white; margin-bottom: 0;">Contact Us</h2>
+            </div>
+            
+            <div class="contact-grid-3">
+                <div class="contact-col">
+                    <h3><i class="fas fa-map-marker-alt"></i> Locations</h3>
+                    <p style="font-size: 14px; color: #ccc;">We are available in:</p>
+                    
+                    <div class="locations-grid-boxes">
+                        <div class="loc-box">Lahore</div>
+                        <div class="loc-box">Faisalabad</div>
+                        <div class="loc-box">Islamabad</div>
+                        <div class="loc-box">Peshawar</div>
+                        <div class="loc-box">Karachi</div>
+                        <div class="loc-box">UAE</div>
+                        <div class="loc-box">Sweden</div>
+                        <div class="loc-box">UK</div>
+                    </div>
+                </div>
+                
+                <div class="contact-col">
+                    <h3><i class="fas fa-phone-alt"></i> Contact Us</h3>
+                    
+                    <div class="contact-sub-head">We're Open</div>
+                    <p class="contact-text">Our store has opened for shopping, exchanges, and bulk inquiry 24/7.</p>
+                    
+                    <a href="mailto:Nsco.pk@gmail.com" class="email-link">
+                        <i class="fas fa-envelope"></i> Nsco.pk@gmail.com
+                    </a>
+                </div>
+                
+                <div class="contact-col">
+                    <h3><i class="fas fa-certificate"></i> Certified Quality</h3>
+                    
+                    <p class="certified-text">Providing HALAL Certified and FOOD-grade Industrial CLEANING & HYGIENE Chemicals for Industrial Hygiene and Food Safety.</p>
+                    
+                    <div class="trusted-badge">
+                        <i class="fas fa-award"></i> Trusted Since 2006
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="social-links">
+                    <a href="https://www.facebook.com/nscohygiene" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/nscohygiene/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/923321444065" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="mailto:Nsco.pk@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+            <p class="copyright">
+                &copy; 2025 NASCO Hygiene. All rights reserved. | Developed by NASCO Digital Team.
+            </p>
+        </div>
+    </footer>
+
+
+    <!-- Product Modals Generic -->
+    <div id="product-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeProductModal()">&times;</span>
+            <div class="modal-body">
+                <div class="modal-gallery">
+                    <div class="main-image-container">
+                        <img src="" alt="Product Image" id="modal-main-img" class="main-image">
+                    </div>
+                    <div class="thumbnail-container" id="modal-thumbnails">
+                        <!-- Thumbnails injected via JS -->
+                    </div>
+                </div>
+                <div class="modal-details">
+                    <h2 id="modal-title">Product Title</h2>
+                    <div id="modal-description">
+                        <!-- Description injected via JS -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript for Category Tabs, Accordion and Modals -->
+    <script>
+        // Product Data
+        const products = {
+             "a420": {
+                title: "Nasco A-420 Alkaline Cleaner - Non-Foaming Alkaline CIP Cleaner | 1Litre-20Litre",
+                images: [
+                    "https://nscohygiene.com/cdn/shop/files/A420-Alkaline-Cleaner.png?v=1757751083&width=1946",
+                    "https://nscohygiene.com/cdn/shop/files/Mockup-1Litre.png?v=1757751068&width=1946",
+                    "https://nscohygiene.com/cdn/shop/files/Mockup-20Litre.png?v=1757751068&width=1946"
+                ],
+                description: `
+                    <p><strong>Product description</strong><br>
+                    NASCO A-420 Alkaline Cleaner is a high-performance, non-foaming alkaline cleaner developed for Clean-in-Place (CIP) systems in food, beverage, dairy, and pharmaceutical industries. Its advanced formulation removes organic soils, fats, oils, and protein residues from processing equipment, pipelines, tanks, and vessels—without generating foam, making it ideal for automated cleaning cycles.</p>
+
+                    <h3>Directions for Use</h3>
+                    <ul>
+                    <li><strong>Dilution:</strong> Use 1.0% – 5.0% v/v depending on soil load and application.</li>
+                    <li><strong>Temperature:</strong> 50°C – 85°C for best performance.</li>
+                    <li><strong>Contact Time:</strong> 10–30 minutes.</li>
+                    <li><strong>Rinsing:</strong> Always rinse thoroughly with potable water after use.</li>
+                    <li>Follow facility’s CIP validation protocols for best results.</li>
+                    </ul>
+
+                    <h3>Applications</h3>
+                    <ul>
+                    <li>CIP cleaning of processing lines, pipelines, and tanks</li>
+                    <li>Food & beverage industry (dairy, brewing, bottling plants)</li>
+                    <li>Pharmaceutical manufacturing equipment</li>
+                    <li>Stainless steel and food-grade equipment cleaning</li>
+                    </ul>
+
+                    <h3>Advantages</h3>
+                    <ul>
+                    <li>✔ Non-foaming – perfect for CIP cycles</li>
+                    <li>✔ High detergency – removes fats, oils & proteins</li>
+                    <li>✔ Free-rinsing formula – reduces water use</li>
+                    <li>✔ Compatible with stainless steel & food-grade equipment</li>
+                    <li>✔ Ensures consistent cleaning & hygiene compliance</li>
+                    </ul>
+
+                    <h3>Compliance</h3>
+                    <ul>
+                    <li>Food-grade formulation</li>
+                    <li>HALAL certified ingredients</li>
+                    <li>Suitable for HACCP-compliant facilities</li>
+                    <li>Manufactured under ISO 9001 & ISO 22000 processes</li>
+                    </ul>
+
+                    <h3>Cautions</h3>
+                    <ul>
+                    <li>For industrial/professional use only.</li>
+                    <li>Wear gloves, goggles, and protective clothing when handling.</li>
+                    <li>Avoid contact with eyes, skin, and clothing.</li>
+                    <li>Do not mix with acids or other chemicals.</li>
+                    <li>Keep out of reach of children.</li>
+                    </ul>
+
+                    <h3>Specifications</h3>
+                    <ul>
+                    <li><strong>Appearance:</strong> Clear liquid</li>
+                    <li><strong>pH (concentrate):</strong> Strongly alkaline (12–13)</li>
+                    <li><strong>Specific Gravity:</strong> ~1.2</li>
+                    <li><strong>Solubility:</strong> Fully soluble in water</li>
+                    <li><strong>Packaging:</strong> 20L, 200L</li>
+                    </ul>
+
+                    <h3>Storage & Shelf Life</h3>
+                    <ul>
+                    <li>Store in a cool, dry, ventilated place, away from direct sunlight.</li>
+                    <li>Keep containers tightly closed.</li>
+                    <li>Shelf Life: 2 years from manufacturing date in sealed packaging.</li>
+                    </ul>
+                `
+            },
+            "aerogel": {
+                title: "Nasco AERO-GEL – Gel Air Freshener | 1 Litre",
+                images: [
+                    "https://nscohygiene.com/cdn/shop/files/Mockup-1Litre_49b0da57-f4cd-4890-8a2b-9fffc7f5634f.png?v=1758038515&width=1946"
+                ],
+                description: `
+                    <p><strong>Product description</strong><br>
+                    NASCO AERO-GEL is a premium gel-based air freshener that delivers a steady and long-lasting fragrance release to keep your car and small spaces smelling fresh for weeks. Unlike sprays that fade quickly, its slow-release gel technology ensures a consistent aroma, making every ride or room feel clean and inviting. Available in multiple scents, it is compact, spill-proof, and easy to place anywhere.</p>
+
+                    <h3>Key Features ✅</h3>
+                    <ul>
+                    <li>Long-lasting freshness – up to 30+ days</li>
+                    <li>Slow-release gel technology – consistent fragrance output</li>
+                    <li>Compact & portable – fits in cup holders, dashboards, drawers, offices</li>
+                    <li>Spill-proof design – safe for cars & homes</li>
+                    <li>Multiple fragrances available – citrus, floral, ocean, lavender, etc.</li>
+                    <li>No power or batteries needed – eco-friendly & hassle-free</li>
+                    </ul>
+
+                    <h3>Applications 🚙🏠</h3>
+                    <ul>
+                    <li>Cars (dashboards, cup holders, under seats)</li>
+                    <li>Offices & workspaces</li>
+                    <li>Bedrooms & living rooms</li>
+                    <li>Closets, drawers & small enclosed spaces</li>
+                    </ul>
+
+                    <h3>Directions for Use ⚙️</h3>
+                    <ol>
+                    <li>Remove the lid and protective seal.</li>
+                    <li>Place the gel container in the desired location.</li>
+                    <li>Adjust fragrance strength by sliding the vent cover (if available).</li>
+                    <li>Replace once fragrance fades (typically 30–45 days).</li>
+                    </ol>
+
+                    <h3>Specifications 📑</h3>
+                    <ul>
+                    <li><strong>Appearance:</strong> Gel in cup/container</li>
+                    <li><strong>Color:</strong> Varies by fragrance</li>
+                    <li><strong>Odor:</strong> Pleasant scent, fragrance-specific</li>
+                    <li><strong>Form:</strong> Solid gel</li>
+                    <li><strong>Fragrance Life:</strong> 30–45 days</li>
+                    <li><strong>Packaging:</strong> 1 Litre Jar</li>
+                    </ul>
+                `
+            },
+            "acidoclean": {
+                title: "Nasco Acid-O-Clean - Non-Foaming Acidic CIP Cleaner | 1Litre-10Litre",
+                images: [
+                    "https://nscohygiene.com/cdn/shop/files/ACID-O-CLEAN.png?v=1757756622&width=1946",
+                    "https://nscohygiene.com/cdn/shop/files/Mockup_94916aec-d481-4869-998b-35c0361efef7.png?v=1757756622&width=1946",
+                    "https://nscohygiene.com/cdn/shop/files/Mockup-Bulk.png?v=1757756622&width=1946"
+                ],
+                description: `
+                    <p><strong>Product description</strong><br>
+                    Acid-O-Clean is a premium, non-foaming acidic cleaner designed for Clean-in-Place (CIP) systems in food, beverage, dairy, brewing, and pharmaceutical industries. It effectively removes mineral scale, milk stone, rust, and water hardness salts from the internal surfaces of tanks, pipelines, heat exchangers, and processing equipment — all without foaming, making it ideal for automated cleaning cycles.</p>
+
+                    <h3>Key Features ✅</h3>
+                    <ul>
+                    <li>Non-foaming – ideal for automated CIP systems</li>
+                    <li>Dissolves mineral scale & rust quickly and effectively</li>
+                    <li>Improves efficiency of heat transfer surfaces</li>
+                    <li>Free-rinsing formula – reduces downtime</li>
+                    <li>Safe for stainless steel & CIP equipment</li>
+                    <li>Food-grade & HALAL certified formulation</li>
+                    </ul>
+
+                    <h3>Applications 🏭</h3>
+                    <ul>
+                    <li>Dairy Equipment (milk pipelines, pasteurizers, tanks)</li>
+                    <li>Beverage Lines (juices, soft drinks, breweries)</li>
+                    <li>Brewing Tanks & CIP-ready Vessels</li>
+                    <li>Heat Exchangers & Boilers</li>
+                    <li>Stainless Steel Processing Surfaces</li>
+                    </ul>
+
+                    <h3>Usage Instructions ⚙️</h3>
+                    <ul>
+                    <li><strong>Concentration:</strong> 0.5% – 3.0% (v/v) depending on soil level</li>
+                    <li><strong>Temperature:</strong> 40 – 70°C</li>
+                    <li><strong>Contact Time:</strong> 10 – 30 minutes</li>
+                    <li><strong>Rinse:</strong> Always rinse thoroughly with potable water after use</li>
+                    </ul>
+
+                    <h3>Caution / Safety ⚠️</h3>
+                    <ul>
+                    <li>For professional use only</li>
+                    <li>Avoid contact with skin, eyes, and clothing</li>
+                    <li>Use protective gloves, goggles, and clothing when handling</li>
+                    <li>Do not mix with alkaline products, chlorine, or oxidizers</li>
+                    <li>Store in a cool, dry, and well-ventilated area away from direct sunlight</li>
+                    </ul>
+                `
+            },
+            "apc_disinfectant": {
+                title: "Nasco All Purpose Car Cleaner & Disinfectant Spray | 1Litre-30Litre",
+                images: [
+                    "https://nscohygiene.com/cdn/shop/files/All-Purpose-Car-Cleaner-_-Disinfectant-Spray.png?v=1758027743&width=1946",
+                    "https://nscohygiene.com/cdn/shop/files/Mockup-1Litre_da6e2c0e-a772-42f8-a7fe-4cc466de7dc9.png?v=1758027743&width=1946",
+                    "https://nscohygiene.com/cdn/shop/files/Mockup-5Litre_74aaa253-cb41-428a-bc7a-be22981d2eb1.png?v=1758027743&width=1946"
+                ],
+                description: `
+                    <p><strong>Product description</strong><br>
+                    NASCO All Purpose Car Cleaner & Disinfectant Spray is a ready-to-use, multi-surface solution that not only cleans but also disinfects car interiors and exteriors. Its balanced formula removes dust, fingerprints, light grease, and everyday dirt while eliminating 99.9% of bacteria and viruses from high-touch areas. Safe for most automotive surfaces, it leaves vehicles fresh, hygienic, and streak-free.</p>
+
+                    <h3>Key Features ✅</h3>
+                    <ul>
+                    <li>2-in-1 formula – cleans and disinfects in one step</li>
+                    <li>Eliminates 99.9% of bacteria & viruses</li>
+                    <li>Safe for multiple surfaces – plastic, vinyl, fabric, glass & painted surfaces</li>
+                    <li>Streak-free finish – quick-dry, no residue</li>
+                    <li>Fresh fragrance – leaves interiors smelling clean</li>
+                    </ul>
+
+                    <h3>Applications 🚙</h3>
+                    <ul>
+                    <li>Interior: dashboards, steering wheels, gear knobs, door handles, consoles, seats</li>
+                    <li>Exterior: door handles, trims, touchpoints</li>
+                    <li>Fleet & commercial vehicles</li>
+                    </ul>
+
+                    <h3>Directions for Use ⚙️</h3>
+                    <ol>
+                    <li>Spray directly onto surface or microfiber cloth.</li>
+                    <li>Wipe evenly to clean and disinfect.</li>
+                    <li>For stubborn dirt, allow the product to dwell for a few seconds before wiping.</li>
+                    <li>On food-contact areas, rinse with potable water after disinfection.</li>
+                    </ol>
+                `
+            },
+            "apc_spray": {
+                title: "Nasco All Purpose Car Cleaner Spray | 1Litre-30Litre",
+                images: [
+                    "https://nscohygiene.com/cdn/shop/files/All-Purpose-Car-Cleaner-Spray.png?v=1758026198&width=1946",
+                    "https://nscohygiene.com/cdn/shop/files/Mockup-1Litre_6fef688f-d085-4666-a176-e6d225511d2f.png?v=1758026198&width=1946",
+                    "https://nscohygiene.com/cdn/shop/files/Mockup-30Litre_baaa0bd2-7111-477c-8211-0f3b47b72f4d.png?v=1758026198&width=1946"
+                ],
+                description: `
+                    <p><strong>Product description</strong><br>
+                    NASCO All Purpose Car Cleaner Spray is a ready-to-use, multi-surface cleaner designed for both interior and exterior car care. Its balanced formulation safely removes dust, fingerprints, light grease, food stains, and everyday dirt from a wide range of automotive surfaces. Quick and easy to use, it leaves a fresh, clean look without streaks or residue.</p>
+
+                    <h3>Key Features ✅</h3>
+                    <ul>
+                    <li>Multi-surface formula – safe for plastic, vinyl, rubber, fabric & painted surfaces</li>
+                    <li>Quick clean action – removes dust, light dirt & smudges instantly</li>
+                    <li>Streak-free finish – leaves no residue behind</li>
+                    <li>Ready-to-use spray – no dilution required</li>
+                    <li>Fresh fragrance – keeps interiors smelling clean</li>
+                    <li>Safe & gentle – pH-balanced formulation</li>
+                    </ul>
+                `
+            },
+            "interior_gel": {
+                title: "Nasco All Purpose Interior Cleaning & Disinfectant Gel | 1Litre-30Litre",
+                images: [
+                    "https://nscohygiene.com/cdn/shop/files/All-Purpose-Interior-Cleaning-_-Disinfectant-Gel.png?v=1758033029&width=1946",
+                    "https://nscohygiene.com/cdn/shop/files/Mockup-1Litre_79a3ef74-c699-4dfd-82eb-2e30a3167943.png?v=1758033029&width=1946",
+                    "https://nscohygiene.com/cdn/shop/files/Mockup-5Litre_03c9ecd8-78d8-4e32-90bf-a325bf8db099.png?v=1758033029&width=1946"
+                ],
+                description: `
+                    <p><strong>Product description</strong><br>
+                    NASCO All Purpose Interior Cleaning & Disinfectant Gel is a ready-to-use gel-based cleaner formulated for safe and effective cleaning + disinfection of car interiors. Its thick gel consistency allows for controlled application on surfaces, preventing spills and over-spray. It removes dust, smudges, food stains, and grease while killing 99.9% of bacteria and viruses on high-touch surfaces.</p>
+                    <h3>Key Features ✅</h3>
+                    <ul>
+                    <li>Gel-based formula – controlled application, no dripping</li>
+                    <li>Cleans & disinfects in one step</li>
+                    <li>Eliminates 99.9% of bacteria & viruses</li>
+                    <li>Safe on interior materials – plastic, vinyl, rubber, and sealed leather</li>
+                    <li>Residue-free finish – streak-free, quick dry</li>
+                    </ul>
+                `
+            },
+            "carpex": {
+                title: "Nasco CARPEX – Car Carpet Cleaning Shampoo | 1Litre-30Litre",
+                images: [
+                    "https://nscohygiene.com/cdn/shop/files/Car-Carpet-Cleaning-Shampoo.png?v=1758042896&width=1946",
+                    "https://nscohygiene.com/cdn/shop/files/Mockup-1Litre_9f617283-99cf-4d4c-bc39-ed1ebd858f59.png?v=1758042896&width=1946",
+                    "https://nscohygiene.com/cdn/shop/files/Mockup-5Litre_c1ac2837-e12b-4e40-9d97-022657de2e91.png?v=1758042896&width=1946"
+                ],
+                description: `
+                    <p><strong>Product description</strong><br>
+                    NASCO CARPEX is a professional-grade carpet cleaning shampoo designed to remove dirt, mud, food spills, and tough stains from car carpets and upholstery. Its foaming action penetrates deep into fibers, lifting dirt and grime while neutralizing unpleasant odors.</p>
+                    <h3>Key Features ✅</h3>
+                    <ul>
+                    <li>Deep fiber-cleaning formula – penetrates and lifts dirt</li>
+                    <li>Removes stains & odors – coffee, food, mud, grease</li>
+                    <li>Rich foaming action – ensures thorough cleaning</li>
+                    <li>Safe for multiple fabrics – carpets, mats, cloth upholstery</li>
+                    <li>Leaves fresh fragrance</li>
+                    </ul>
+                `
+            },
+            "chlors": {
+                title: "Nasco CHLOR-S Cleaner & Disinfectant for Blood Spills and Operation Rooms | 500Ml-10Litre",
+                images: [
+                    "https://nscohygiene.com/cdn/shop/files/CHLOR-S.png?v=1756922209&width=1946",
+                    "https://nscohygiene.com/cdn/shop/files/Mockup-500Ml_b92b5c51-f0d3-44ca-97ec-d700bc14ae5d.png?v=1756922209&width=1946",
+                    "https://nscohygiene.com/cdn/shop/files/Mockup-5Litre_65c87b7b-34da-4278-b69b-b9df282f4abb.png?v=1756922209&width=1946"
+                ],
+                description: `
+                    <p><strong>Product description</strong><br>
+                    NASCO CHLOR-S is a high-strength chlorine-based disinfectant specifically formulated for use in hospitals, operating rooms, laboratories, and healthcare facilities. It is highly effective against bloodborne pathogens, viruses, bacteria, and fungi, making it ideal for rapid decontamination of blood spills and high-risk clinical environments.</p>
+                    <h3>Directions for Use</h3>
+                    <h4>For Blood Spills</h4>
+                    <ul>
+                    <li>Wear protective gloves.</li>
+                    <li>Apply CHLOR-S directly on the contaminated area.</li>
+                    <li>Allow contact for 10 minutes before wiping away.</li>
+                    </ul>
+                    <h4>For Operation Rooms / Surfaces</h4>
+                    <ul>
+                    <li>Dilute 50 ml CHLOR-S in 1 liter of water (5% solution).</li>
+                    <li>Mop, wipe, or spray surfaces evenly.</li>
+                    <li>Leave for 10–15 minutes contact time.</li>
+                    </ul>
+                `
+            },
+            "clr": {
+                title: "Nasco CLR – Calcium, Limescale & Rust Remover | 500Ml-5Litre",
+                images: [
+                    "https://nscohygiene.com/cdn/shop/files/CLR.png?v=1764088862&width=1946",
+                    "https://nscohygiene.com/cdn/shop/files/Mockups_40d27f21-4642-4f42-b71c-0a5ef8004746.png?v=1764088862&width=1946",
+                    "https://nscohygiene.com/cdn/shop/files/Mockup-Bulk_ccc176f9-f592-4219-b0a1-e88d4c391b4e.png?v=1764088862&width=1946"
+                ],
+                description: `
+                    <p><strong>Product description</strong><br>
+                    CLR is a fast-acting, water-based acidic descaler designed to remove calcium deposits, limescale, rust (iron oxide), and hard-water stains from industrial and domestic surfaces. It penetrates and dissolves mineral buildup quickly, restoring equipment and surfaces to clean, scale-free condition.</p>
+                    <h3>Purpose</h3>
+                    <p>Developed for effective removal of calcium carbonate, rust deposits, hard-water stains, and mineral buildup.</p>
+                    <h3>How to Use</h3>
+                    <p><strong>Dilution Rates:</strong></p>
+                    <ul>
+                    <li>Light Scale: 1:10</li>
+                    <li>Moderate Scale: 1:5</li>
+                    <li>Heavy Scale & Rust: Use undiluted</li>
+                    </ul>
+                    <p><strong>Application:</strong> Apply directly, allow 3-10 mins contact, scrub if needed, rinse thoroughly.</p>
+                `
+            },
+            "carwash": {
+                title: "Nasco Car Wash Shampoo Graphene Coated | 1Litre-30Litre",
+                images: [
+                    "https://nscohygiene.com/cdn/shop/files/Car-Wash-Shampoo-Graphene-Coated.png?v=1758017636&width=1946",
+                    "https://nscohygiene.com/cdn/shop/files/Mockup-1Litre_621ae813-0ec3-4050-ad20-9ae20a32acd7.png?v=1758017636&width=1946",
+                    "https://nscohygiene.com/cdn/shop/files/Mockup-5Litre_097bc58f-ba5e-47c6-9f89-1dad2f94fed1.png?v=1758017636&width=1946"
+                ],
+                description: `
+                    <p><strong>Product description</strong><br>
+                    NASCO Car Wash Shampoo Graphene Coated is an advanced graphene-infused shampoo that delivers the highest level of cleaning, gloss, and protection in one wash. Its unique graphene nano-technology creates a durable shield against water spots, UV rays, dirt, and road grime while enhancing depth, slickness, and shine.</p>
+                    <h3>Key Features ✅</h3>
+                    <ul>
+                    <li>Graphene-infused formula – advanced nano-protection</li>
+                    <li>Anti-static properties – reduces dust build-up</li>
+                    <li>Extreme hydrophobicity – superior water-beading & sheeting</li>
+                    <li>Enhanced gloss & depth – mirror-like finish</li>
+                    </ul>
+                `
+            },
+            "dashx": {
+                title: "Nasco DASHX – Dashboard Cleaner & Polish | 1Litre-30Litre",
+                images: [
+                    "https://nscohygiene.com/cdn/shop/files/Dashboard-Cleaner-_-Polish.png?v=1758036242&width=1946",
+                    "https://nscohygiene.com/cdn/shop/files/Mockup-1Litre_dc5b1023-3d78-47e1-af11-287507ffc891.png?v=1758036242&width=1946",
+                    "https://nscohygiene.com/cdn/shop/files/Mockup-5Litre_13c2b78e-de86-4f74-9f4b-4653a55c0098.png?v=1758036242&width=1946"
+                ],
+                description: `
+                    <p><strong>Product description</strong><br>
+                    NASCO DASHX is a professional dashboard cleaner & polish that removes dust, dirt, fingerprints, and light stains while restoring a natural glossy finish. Enriched with UV protectants, it prevents dashboard fading, cracking, and discoloration caused by sunlight. The anti-static formula reduces dust build-up.</p>
+                    <h3>Key Features ✅</h3>
+                    <ul>
+                    <li>Cleans & polishes in one step</li>
+                    <li>UV protection – prevents fading & cracking</li>
+                    <li>Anti-static formula – repels dust for longer-lasting clean</li>
+                    <li>Restores natural gloss – non-greasy finish</li>
+                    </ul>
+                `
+            },
+            "degron": {
+                title: "Nasco DEGRON – Car Engine Degreaser | 1Litre-30Litre",
+                images: [
+                    "https://nscohygiene.com/cdn/shop/files/Car-Engine-Degreaser.png?v=1758045581&width=1946",
+                    "https://nscohygiene.com/cdn/shop/files/Mockup-1Litre_24c441fc-c11a-4a4b-9780-a135a35f0849.png?v=1758045581&width=1946",
+                    "https://nscohygiene.com/cdn/shop/files/Mockup-5Litre_f1585e6a-6592-4de4-869a-be1a790a1145.png?v=1758045581&width=1946"
+                ],
+                description: `
+                    <p><strong>Product description</strong><br>
+                    NASCO DEGRON is a heavy-duty engine degreaser specially formulated to dissolve oil, grease, dirt, and grime from car engines and components. Its fast-acting formula penetrates deep to loosen stubborn deposits while being safe on metal, plastic, and rubber parts.</p>
+                    <h3>Key Features ✅</h3>
+                    <ul>
+                    <li>Powerful grease-cutting formula</li>
+                    <li>Safe on metals, plastics & rubbers</li>
+                    <li>Fast action – works within minutes</li>
+                    <li>Improves heat dissipation</li>
+                    </ul>
+                `
+            },
+            "drainx": {
+                title: "Nasco Drain-X Heavy Duty Alkaline Drain Opener / Cleaner | 1Litre-10Litre",
+                images: [
+                    "https://nscohygiene.com/cdn/shop/files/Drain-X_0bc50b8c-d1df-470b-906d-f259d9394eaf.png?v=1755504551&width=1946",
+                    "https://nscohygiene.com/cdn/shop/files/New-Mockup_0bf3ad9b-6b98-4488-ae14-ab19126be9bf.png?v=1762076083&width=1946",
+                    "https://nscohygiene.com/cdn/shop/files/Drain-X-Bulk.png?v=1762076083&width=1946"
+                ],
+                description: `
+                    <p><strong>Product description</strong><br>
+                    A non-acid drain opener that is non-fuming and safe for use in all plumbing lines, septic tanks, garbage disposals, and on porcelain. Dissolves starches, fats, oils, greases, hair, vegetable gums and other organic wastes.</p>
+                    <h3>How to Use</h3>
+                    <p>Pour through standing water. Use 1-liter minimum for clogged drains. Allow to work for 15-30 minutes. Flush with warm water.</p>
+                `
+            },
+            "detartreur": {
+                title: "Nasco DÉTARTREUR – Rust, Scale & Deposits Remover | 1Litre-20Litre",
+                images: [
+                    "https://nscohygiene.com/cdn/shop/files/Detartreur.png?v=1764090590&width=1946",
+                    "https://nscohygiene.com/cdn/shop/files/Mockup-1Litre_d77a6ba1-7f64-4483-8a84-48d618f85e1d.png?v=1764090563&width=1946",
+                    "https://nscohygiene.com/cdn/shop/files/Mokcup-20Litre1.png?v=1764090563&width=1946"
+                ],
+                description: `
+                    <p><strong>Product description</strong><br>
+                    DÉTARTREUR is a powerful blend of mineral and organic acids, enhanced with wetting agents, antifoam additives, and corrosion inhibitors, designed for fast and effective removal of rust, limescale, mineral deposits, and hard-water buildup from industrial equipment.</p>
+                    <h3>How to Use</h3>
+                    <p>Dilution: 10-15% solution. Circulate through system until scale is dissolved. Max temperature 70°C. Flush with clean water and neutralize with A-420.</p>
+                `
+            },
+            "frigo": {
+                title: "Nasco FRIGO Fridge, Freezer & Ice Cleaner | 500Ml-5Litre",
+                images: [
+                    "https://nscohygiene.com/cdn/shop/files/FRIGO_102997af-b33b-4d0e-8040-21656fd33a85.png?v=1755502387&width=1946",
+                    "https://nscohygiene.com/cdn/shop/files/Mockups_9b19eee7-a379-4a28-b6c5-74f1551a5a68.png?v=1755502387&width=1946",
+                    "https://nscohygiene.com/cdn/shop/files/Mockups_9b19eee7-a379-4a28-b6c5-74f1551a5a68.png?v=1755502387&width=1946"
+                ],
+                description: `
+                    <p><strong>Product description</strong><br>
+                    FRIGO Fridge, Freezer & Ice Cleaner is a specially formulated solution designed to effectively melt ice buildup and clean both the interior and exterior surfaces of refrigerators and freezers. Can be used to minus 40-Degree-C.</p>
+                    <h3>Features & Benefits</h3>
+                    <ul>
+                    <li>Multi-Surface Cleaning</li>
+                    <li>Ice Melting</li>
+                    <li>Dirt & Grease Removal</li>
+                    <li>Non-Flammable</li>
+                    </ul>
+                `
+            },
+            "fabriclean": {
+                title: "Nasco Fabri-Clean Upholstery and Leather Cleaner | 500Ml-10Litre",
+                images: [
+                    "https://nscohygiene.com/cdn/shop/files/Farbi-Clean.png?v=1755439792&width=1946",
+                    "https://nscohygiene.com/cdn/shop/files/Fabri-Clean-new_73761dc1-0649-4a4f-a1a2-ff2769c1e035.png?v=1755439792&width=1946",
+                    "https://nscohygiene.com/cdn/shop/files/Fabri-Clean-Bulk1.png?v=1755439792&width=1946"
+                ],
+                description: `
+                    <p><strong>Product description</strong><br>
+                    FabriClean Upholstery and Leather Cleaner is a specially formulated cleaning solution designed to gently and effectively remove dirt, stains, and grime from fabric upholstery and leather surfaces without causing damage or discoloration.</p>
+                    <h3>Features & Benefits</h3>
+                    <ul>
+                    <li>Effective removal of dirt, stains, and oils</li>
+                    <li>Safe and gentle on delicate fabrics and leather finishes</li>
+                    <li>Helps maintain the softness and color of leather</li>
+                    <li>Leaves no sticky residue</li>
+                    </ul>
+                `
+            },
+            "generalcleanf": {
+                title: "Nasco General Clean \"F\" Floor Cleaner | Highly Concentrated - 500Ml-5Litre",
+                images: [
+                    "https://nscohygiene.com/cdn/shop/files/Floor-Cleaner_204c961a-65cb-4660-be95-c821ab1eb9e2.png?v=1755501813&width=1946",
+                    "https://nscohygiene.com/cdn/shop/files/Floor-Cleaner_555c94b3-dce2-4f84-9a43-94470b97f707.png?v=1755501813&width=1946",
+                    "https://nscohygiene.com/cdn/shop/files/Floor-Cleaner-Bulk.png?v=1755501813&width=1946"
+                ],
+                description: `
+                    <p><strong>Product description</strong><br>
+                    GENERAL CLEAN "F" is a liquid "self-foaming" moderately alkaline cleaner that penetrates, disperses, and emulsifies tenacious soils by synergistic action.</p>
+                    <h3>How to Use</h3>
+                    <p>Mix with tap water at 1:40 for light soil up to 1:10 for heavy soil. For pressure washers: 1:100 - 1:150. Rinse with potable water for food contact surfaces.</p>
+                `
+            },
+            "generalcleandc": {
+                title: "Nasco General Clean-DC | Cleaner - Disinfectant - Fungicide | 500Ml-10Litre",
+                images: [
+                    "https://nscohygiene.com/cdn/shop/files/General-Clean-DC_7f9afc6c-44dd-4c29-a85f-3fb7a7e42476.png?v=1756842359&width=1946",
+                    "https://nscohygiene.com/cdn/shop/files/Mockup-500Ml_758dea0e-c19e-4f1b-8a88-44968f81795f.png?v=1756842383&width=1946",
+                    "https://nscohygiene.com/cdn/shop/files/Mockup-10Litre_897642f6-c135-493f-9446-ae521a64ff33.png?v=1756842382&width=1946"
+                ],
+                description: `
+                    <p><strong>Product description</strong><br>
+                    General Clean-DC is a clear, light blue liquid cleaner with foaming tendencies. It is specially formulated to clean and disinfect surfaces in food operations, veterinary clinics, nursing homes, and hospitals.</p>
+                    <h3>Directions for Use</h3>
+                    <p>General Surface Cleaning & Disinfection: Use 100 ml per liter of water. For strong organic odors: Use 150–200 ml per liter. Laundry: 1000 ml per 50 kg cloth.</p>
+                `
+            },
+            "grillclean": {
+                title: "Nasco Grill Clean Alkaline Oven and Grill Cleaner | 500Ml-5Litre",
+                images: [
+                    "https://nscohygiene.com/cdn/shop/files/Oven-Cleaner.png?v=1755503301&width=1946",
+                    "https://nscohygiene.com/cdn/shop/files/Mockups_dd4f7da1-013c-4f81-910c-fb7fc4ca0571.png?v=1755503301&width=1946",
+                    "https://nscohygiene.com/cdn/shop/files/Oven-Cleaner-Bulk.png?v=1755503301&width=1946"
+                ],
+                description: `
+                    <p><strong>Product description</strong><br>
+                    To remove burnt-on protein and carbon from hot plates, ovens, fryers, grills, filters, barbecues, roasters, coffee urns, etc.</p>
+                    <h3>How to Use</h3>
+                    <p>Griddles: Mix 1 part GRILL CLEAN to 1 part water. Apply, let work for 5-10 mins, wipe clean. Ovens: Do not dilute. Apply directly, wait 5-10 mins, scrub if needed, rinse.</p>
+                `
+            },
+            "ipa70": {
+                title: "Nasco IPA 70% Surface Disinfectant | 500Ml-20Litre",
+                images: [
+                    "https://nscohygiene.com/cdn/shop/files/IPA-70.png?v=1757759040&width=1946",
+                    "https://nscohygiene.com/cdn/shop/files/Mockup_9a122c82-114b-486c-ada3-927ce941990c.png?v=1757759040&width=1946",
+                    "https://nscohygiene.com/cdn/shop/files/Mockup-10Litre_89d46b05-bc24-4983-8935-63200ebdcdd1.png?v=1757759040&width=1946"
+                ],
+                description: `
+                    <p><strong>Product description</strong><br>
+                    NASCO IPA 70% Surface Disinfectant is a ready-to-use, fast-evaporating solution formulated with 70% isopropyl alcohol. It provides rapid, broad-spectrum antimicrobial activity against bacteria, viruses, and fungi.</p>
+                    <h3>Key Features ✅</h3>
+                    <ul>
+                    <li>Broad-spectrum antimicrobial activity</li>
+                    <li>Fast-acting – kills germs within seconds</li>
+                    <li>Quick-drying, leaves no residue</li>
+                    <li>Ready-to-use, no dilution required</li>
+                    </ul>
+                `
+            },
+            "instrumilk": {
+                title: "Nasco Instru-Milk Instrument Lubricant & Corrosion Protector | 500Ml-10Litre",
+                images: [
+                    "https://nscohygiene.com/cdn/shop/files/Instru-Milk.png?v=1756918300&width=1946",
+                    "https://nscohygiene.com/cdn/shop/files/Mockup-500Ml_e9155969-cd86-41c3-bef0-947e0c5f85db.png?v=1756918300&width=1946",
+                    "https://nscohygiene.com/cdn/shop/files/Mockup-5Litre_e0ea9ae5-4307-456c-9863-24a398a23a3e.png?v=1756918300&width=1946"
+                ],
+                description: `
+                    <p><strong>Product description</strong><br>
+                    NASCO INSTRU-MILK is a milky-white emulsion specially formulated for the post-cleaning care of surgical and medical instruments. It provides a protective lubricating layer that prevents rust, stains, and corrosion.</p>
+                    <h3>Directions for Use</h3>
+                    <p>Dilute 1 part to 9 parts water. Immerse cleaned instruments for 30-60 seconds. Allow to air dry. Do not rinse.</p>
+                `
+            },
+            "leathique": {
+                title: "Nasco LEATHIQUE – Leather Cleaner & Conditioner | 1Litre-30Litre",
+                images: [
+                    "https://nscohygiene.com/cdn/shop/files/Leather-Cleaner-and-Conditioner.png?v=1758044223&width=1946",
+                    "https://nscohygiene.com/cdn/shop/files/Mockup-1Litre_62b0a78f-018b-4880-878f-3b35ace75138.png?v=1758044223&width=1946",
+                    "https://nscohygiene.com/cdn/shop/files/Mockup-5Litre_5b2d0623-32d4-494b-8c45-44da1857d767.png?v=1758044223&width=1946"
+                ],
+                description: `
+                    <p><strong>Product description</strong><br>
+                    NASCO LEATHIQUE is a 2-in-1 cleaner and conditioner specially formulated for genuine and synthetic leather surfaces. It gently removes dirt, body oils, and light stains, while enriching leather with natural conditioners to restore softness, flexibility, and shine.</p>
+                    <h3>Key Features ✅</h3>
+                    <ul>
+                    <li>Cleans & conditions in one step</li>
+                    <li>Restores softness & natural sheen</li>
+                    <li>Prevents drying, cracking & fading</li>
+                    <li>UV protection</li>
+                    </ul>
+                `
+            },
+            "lucid": {
+                title: "Nasco LUCID (Bathrooms and Kitchen) Tile & Grout Cleaner | 500Ml-10Litre",
+                images: [
+                    "https://nscohygiene.com/cdn/shop/files/Tile-and-Grout.png?v=1755502843&width=1946",
+                    "https://nscohygiene.com/cdn/shop/files/Mockups_aefc4975-1413-4c1c-ab2d-f4944fbbab9f.png?v=1755502843&width=1946",
+                    "https://nscohygiene.com/cdn/shop/files/Tiles-and-Grout-Cleaner-Bulk.png?v=1755502843&width=1946"
+                ],
+                description: `
+                    <p><strong>Product description</strong><br>
+                    LUCID is a concentrated, powerful cleaner specifically formulated for effective removal of tough stains, soap scum, lime scale, and mineral deposits from bathroom and kitchen tiles and grout lines.</p>
+                    <h3>Directions for Use</h3>
+                    <p>Apply directly on tiles and grout lines. Allow to sit for 5-10 minutes. Scrub lightly. Rinse thoroughly.</p>
+                `
+            },
+            "liquidlaundry": {
+                title: "Nasco Liquid Laundry Anti-Fungal and Anti-Bacterial | 500Ml-10Litre",
+                images: [
+                    "https://nscohygiene.com/cdn/shop/files/Liquid-Laundry.png?v=1755502138&width=1946",
+                    "https://nscohygiene.com/cdn/shop/files/Liquid-Laundary_8bb52225-c643-4bbc-b978-3bd2a948e66d.png?v=1755502138&width=1946",
+                    "https://nscohygiene.com/cdn/shop/files/Liquid-Laundry-Bulk.png?v=1755502138&width=1946"
+                ],
+                description: `
+                    <p><strong>Product description</strong><br>
+                    Blue liquid blend of anionic and nonionic surfactants, soil suspending agents, odour neutralizers, optical brighteners and quaternary ammonium compounds for antifungal and antibacterial actions.</p>
+                    <h3>How to Use</h3>
+                    <p>Use 400 - 800 ml per 100 kg of work. Use 120 ml per load for household washers.</p>
+                `
+            },
+            "lustrex": {
+                title: "Nasco Lustrex Stainless Steel Rust Cleaner and Shiner | 500Ml-5Litre",
+                images: [
+                    "https://nscohygiene.com/cdn/shop/files/Stainless-Steel.png?v=1755438434&width=1946",
+                    "https://nscohygiene.com/cdn/shop/files/Stainless-Steel-Cleaner-Bulk.png?v=1755438434&width=1946",
+                    "https://nscohygiene.com/cdn/shop/files/Mockups_a9360820-c640-4f1e-88d5-b530d18d6435.png?v=1755438434&width=1946"
+                ],
+                description: `
+                    <p><strong>Product Description</strong><br>
+                    LUSTREX Stainless Steel Rust Cleaner and Shiner is a powerful, food-grade, and HALAL-certified solution formulated to efficiently and effectively clean and restore stainless steel surfaces. It is ideal for use in food processing, hospitality, healthcare, and industrial environments where hygiene and appearance are critical.</p>
+
+                    <h3>Cleaning Capabilities</h3>
+                    <ul>
+                        <li>Fingerprints and water marks</li>
+                        <li>Light oil and grease marks</li>
+                        <li>Daily or routine light soiling</li>
+                        <li>Brightening and polishing stainless steel</li>
+                        <li>Stubborn spots, stains, and light discoloration</li>
+                        <li>Localized rust stains from carbon steel contamination</li>
+                        <li>Tannin (tea) stains and oily deposits in coffee urns</li>
+                        <li>Adherent hard water scales and mortar/cement splashes</li>
+                        <li>Burnt-on food residues and carbon deposits</li>
+                        <li>Heating or heavy discoloration</li>
+                        <li>Badly neglected surfaces with accumulated grime</li>
+                    </ul>
+
+                    <h3>Method of Use and Benefits</h3>
+                    <ol>
+                        <li><strong>Shake Well:</strong> Ensures uniform distribution of ingredients.</li>
+                        <li><strong>Dilution:</strong> No dilution - direct use.</li>
+                        <li><strong>Application:</strong> Apply using a soft cloth, sponge, or spray directly on the surface. For rust or stubborn spots, apply with a soft brush or cloth directly.</li>
+                        <li><strong>Cleaning Action:</strong> Gently scrub to remove dirt, grease, rust, and discoloration without scratching.</li>
+                        <li><strong>Rinse Thoroughly:</strong> Removes residues, preventing buildup and streaks.</li>
+                        <li><strong>Dry and Polish:</strong> Wiping dry enhances shine and prevents water spots.</li>
+                    </ol>
+
+                    <h3>Benefits</h3>
+                    <ul>
+                        <li>Maintains stainless steel’s natural shine and extends surface life.</li>
+                        <li>Food-grade and HALAL certification ensure safety for food industry use.</li>
+                        <li>Removes tough stains and rust without harsh abrasion.</li>
+                        <li>Enhances hygiene by removing contaminants and deposits.</li>
+                        <li>Economical due to effective dilution and broad cleaning spectrum.</li>
+                        <li>Suitable for routine and heavy-duty cleaning, adapting to different cleaning needs.</li>
+                    </ul>
+
+                    <h3>Safety Guidelines</h3>
+                    <ul>
+                        <li>Wear gloves and eye protection during use.</li>
+                        <li>Use in well-ventilated areas.</li>
+                        <li>Avoid skin and eye contact; rinse immediately if contact occurs.</li>
+                        <li>Store in a cool, dry place away from sunlight and children’s reach.</li>
+                        <li>Dispose of waste as per local regulations.</li>
+                    </ul>
+                `
+            },
+            "marmitax": {
+                title: "Nasco Marmitax Dish Washing Liquid Detergent for Pots and Pans | 500Ml-10Litre",
+                images: [
+                    "https://nscohygiene.com/cdn/shop/files/Dish-Wash_70260876-d5d6-4138-8562-df1eea1b9ce8.png?v=1755439361&width=1946",
+                    "https://nscohygiene.com/cdn/shop/files/Dish-Wash-New_4d2661e9-2a09-40be-a772-e79b3bd88e95.png?v=1755439361&width=1946",
+                    "https://nscohygiene.com/cdn/shop/files/Dish-Wash-Bulk.png?v=1755439361&width=1946"
+                ],
+                description: `
+                    <p><strong>Product description</strong><br>
+                    MARMITEX is a concentrated, pH balanced high sudsing detergent for use in food service operations for washing pots and pans, dishes, or as a general cleaner on floors, walls and equipment.</p>
+                    <h3>How to Use</h3>
+                    <ol>
+                    <li>Pour 2 oz. of product into sink and add water.</li>
+                    <li>Soak dishes, pots & pans for a few minutes.</li>
+                    <li>Scrub clean with sponge or abrasive pad.</li>
+                    <li>Rinse with clear water. Allow to air dry.</li>
+                    </ol>
+                `
+            },
+            "multiphen": {
+                title: "Nasco Multi-Phen Concentrated Phenyl | 500Ml-10Litre",
+                images: [
+                    "https://nscohygiene.com/cdn/shop/files/Multi-Phen_c182f1a8-775b-487e-ad65-5391395a0af1.png?v=1755504318&width=1946",
+                    "https://nscohygiene.com/cdn/shop/files/Multi-Phen_942e3998-edf9-4da9-b66c-dadcd3d3a987.png?v=1755504318&width=1946",
+                    "https://nscohygiene.com/cdn/shop/files/Multi-Phen-Bulk.png?v=1755504318&width=1946"
+                ],
+                description: `
+                    <p><strong>Product description</strong><br>
+                    Multi-purpose phenyl for clean air and healthy environment.</p>
+                    <h3>How to Use</h3>
+                    <p>Use 3.5 ml phenyl per 1 liter of water. For large stains, use 3 times a day for 2 to 3 days.</p>
+                `
+            },
+            "neutrasoak": {
+                title: "Nasco Neutra-Soak Pre-Soaking Solution for Medical Instruments | 500Ml-10Litre",
+                images: [
+                    "https://nscohygiene.com/cdn/shop/files/Neutra-Soak.png?v=1756901661&width=1946",
+                    "https://nscohygiene.com/cdn/shop/files/Mockup-500Ml_9b498cfe-f50a-483a-8c6b-1fca0a908cc0.png?v=1756901661&width=1946",
+                    "https://nscohygiene.com/cdn/shop/files/Mockup-5Litre1_0a1ed14a-6718-4263-8189-4248129f7ce7.png?v=1756901661&width=1946"
+                ],
+                description: `
+                    <p><strong>Product description</strong><br>
+                    NASCO NEUTRA-SOAK is a professional-grade pre-soaking solution designed for the first stage of instrument reprocessing in hospitals, dental clinics, and surgical centers. It effectively loosens and removes blood, protein, mucus, and biofilm residues.</p>
+                    <h3>Directions for Use</h3>
+                    <p>Mix 20–30 ml per 1 liter of water. Soak contaminated instruments for 10-15 minutes immediately after use. Transfer to cleaning system.</p>
+                `
+            },
+            "proclean": {
+                title: "Nasco PRO-CLEAN Chlorinated Foaming Drain Cleaner & Sanitizer | 500Ml-10Litre",
+                images: [
+                    "https://nscohygiene.com/cdn/shop/files/Pro-Clean.png?v=1758538721&width=1946",
+                    "https://nscohygiene.com/cdn/shop/files/Mockup_0a8c1c82-0c5e-428e-9c3a-53813302beae.png?v=1758538721&width=1946",
+                    "https://nscohygiene.com/cdn/shop/files/Mockup-5Litre_cd717850-515d-4f2b-8927-98c77c2b10e2.png?v=1758538721&width=1946"
+                ],
+                description: `
+                    <p><strong>Product description</strong><br>
+                    NASCO Pro-Clean Drain Foam is a concentrated alkaline, chlorinated cleaner designed for deep drain cleaning, sanitization, and control of drain flies. Its high-stability foaming action clings to drain surfaces, ensuring maximum contact time.</p>
+                    <h3>Directions for Use</h3>
+                    <p>Dilute 2–5% v/v. Apply using foam generator. Allow 10-15 mins contact time. Rinse thoroughly.</p>
+                `
+            },
+            "proscrub": {
+                title: "Nasco PRO-SCRUB Surgical Scrub Soap – Antimicrobial Hand & Skin Cleanser | 500Ml-10Litre",
+                images: [
+                    "https://nscohygiene.com/cdn/shop/files/Pro-Scrub.png?v=1756831312&width=1946",
+                    "https://nscohygiene.com/cdn/shop/files/Mockup-500Ml_1a60744f-bb9e-45bb-8a9f-aa6a5c6504fa.png?v=1756831346&width=1946",
+                    "https://nscohygiene.com/cdn/shop/files/Mockup-5Litre.png?v=1756831348&width=1946"
+                ],
+                description: `
+                    <p><strong>Product description</strong><br>
+                    PRO-SCRUB is a specialized surgical scrub soap formulated for pre-operative hand and arm cleansing by healthcare professionals. It contains effective antimicrobial agents that reduce bacteria on the skin.</p>
+                    <h3>Directions for Use</h3>
+                    <p>Wet hands and forearms. Apply PRO-SCRUB. Scrub for 2-3 minutes. Rinse thoroughly.</p>
+                `
+            },
+            "safon": {
+                title: "Nasco Safon Food-safe & food-grade Liquid Hand Soap | 500Ml-10Litre",
+                images: [
+                    "https://nscohygiene.com/cdn/shop/files/Safon-Hand-Soap.png?v=1758536822&width=1946",
+                    "https://nscohygiene.com/cdn/shop/files/Mockup-500Ml-Pump.png?v=1758536822&width=1946",
+                    "https://nscohygiene.com/cdn/shop/files/Mockup-5Litre_2456d8b8-79af-47dd-8e71-ceba65aed7e0.png?v=1758536822&width=1946"
+                ],
+                description: `
+                    <p><strong>Product description</strong><br>
+                    NASCO SafOn is a transparent foaming liquid hand soap formulated with food-grade ingredients, plant-based gums, and natural oils as surfactants. Designed for use in high-compliance environments.</p>
+                    <h3>Key Features ✅</h3>
+                    <ul>
+                    <li>Food-safe & food-grade formula</li>
+                    <li>No odor, no fragrance, no color</li>
+                    <li>High foaming action</li>
+                    <li>Gentle on skin</li>
+                    </ul>
+                `
+            },
+            "sanifect": {
+                title: "Nasco Sanifect Bathroom Cleaner | 500Ml-10Litre",
+                images: [
+                    "https://nscohygiene.com/cdn/shop/files/Toilet-Cleaner.png?v=1755501420&width=1946",
+                    "https://nscohygiene.com/cdn/shop/files/Final.png?v=1755501420&width=1946",
+                    "https://nscohygiene.com/cdn/shop/files/sanifect-toilet-sweep-Bulk.png?v=1755501420&width=1946"
+                ],
+                description: `
+                    <p><strong>Product description</strong><br>
+                    Concentrated heavy-duty germicidal porcelain bowl and urinal cleaner, deodorant and disinfectant.</p>
+                    <h3>How to Use</h3>
+                    <p>Squirt a light stream over the inside of the bowl or urinal. Spread around the bowl and under the rim with a bowl mop. Allow to act for at least a few minutes. Flush clean.</p>
+                `
+            },
+            "sanigel": {
+                title: "Nasco Sanigel 80% Alcohol Hand Sanitiser | 500Ml-10Litre",
+                images: [
+                    "https://nscohygiene.com/cdn/shop/files/Hand-Sanitizer.png?v=1755502593&width=1946",
+                    "https://nscohygiene.com/cdn/shop/files/Mockups_39a794d2-6dff-43d7-84e1-406c99db01d0.png?v=1755502593&width=1946",
+                    "https://nscohygiene.com/cdn/shop/files/Hand-sanitizer-Bulk.png?v=1755502593&width=1946"
+                ],
+                description: `
+                    <p><strong>Product description</strong><br>
+                    Transparent gel for rapid and thorough degerming of the skin. Contains emollients to soften the hands.</p>
+                    <h3>How to Use</h3>
+                    <p>Apply SANIGEL to hands and arms and massage. Skin should be wetted with SANIGEL for 30-seconds for full effect.</p>
+                `
+            },
+            "sodiumhypo": {
+                title: "Nasco Sodium Hypochlorite – 12% Active Chlorine | 5Litre-30Litre",
+                images: [
+                    "https://nscohygiene.com/cdn/shop/files/Mockup-5Litre_37aaba34-7150-4aab-be06-cc8cd212c17a.png?v=1761156719&width=1946",
+                    "https://nscohygiene.com/cdn/shop/files/Mockup-10Litre_a4177244-928b-4cbb-bf29-5322b24adf13.png?v=1761156719&width=1946"
+                ],
+                description: `
+                    <p><strong>Product description</strong><br>
+                    Sodium Hypochlorite 12% is a high-strength oxidizing agent formulated for a wide range of disinfection, sanitization, and bleaching applications.</p>
+                    <h3>Directions for Use</h3>
+                    <p>Dilute to 0.5 – 1% solution for surface disinfection. Allow to stand for 5 – 10 minutes before rinsing with water. For water treatment, add to achieve 1-2 mg/L.</p>
+                `
+            },
+            "tirex": {
+                title: "Nasco TIREX – Car Wheel Cleaner | 1Litre-30Litre",
+                images: [
+                    "https://nscohygiene.com/cdn/shop/files/Car-Wheel-Cleaner.png?v=1758034894&width=1946",
+                    "https://nscohygiene.com/cdn/shop/files/Mockup-1Litre_bc43caf7-29a5-4dfb-89fb-6e972b3c555b.png?v=1758034894&width=1946",
+                    "https://nscohygiene.com/cdn/shop/files/Mockup-5Litre_d353d11d-208c-433a-9244-ba15381c2def.png?v=1758034894&width=1946"
+                ],
+                description: `
+                    <p><strong>Product description</strong><br>
+                    NASCO TIREX is a professional-grade wheel & tire cleaner formulated to tackle the toughest contaminants. It penetrates and dissolves brake dust, road grime, oil, tar, and mud while being safe on alloy, chrome, painted, and steel rims.</p>
+                    <h3>Key Features ✅</h3>
+                    <ul>
+                    <li>Heavy-duty cleaning power</li>
+                    <li>Safe on multiple wheel types</li>
+                    <li>Restores shine</li>
+                    <li>Quick action</li>
+                    </ul>
+                `
+            },
+            "thermoguard": {
+                title: "Nasco Thermo-Guard – Anti-Rust & Anti-Freeze Radiator Coolant | 1Litre-30Litre",
+                images: [
+                    "https://nscohygiene.com/cdn/shop/files/Anti-Rust-_-Anti-Freeze-Radiator-Coolant.png?v=1758041396&width=1946",
+                    "https://nscohygiene.com/cdn/shop/files/Mockup-1Litre_1ab14a01-e9a0-410d-8489-896e5e2f4bae.png?v=1758041396&width=1946",
+                    "https://nscohygiene.com/cdn/shop/files/Mockup-5Litre_ec43afcf-0226-4e1b-b631-c9de5bf32df0.png?v=1758041396&width=1946"
+                ],
+                description: `
+                    <p><strong>Product description</strong><br>
+                    NASCO THERMO-GUARD is a high-performance radiator coolant formulated with anti-rust inhibitors and anti-freeze agents to protect your engine in all seasons.</p>
+                    <h3>Key Features ✅</h3>
+                    <ul>
+                    <li>Dual protection – anti-freeze + anti-rust</li>
+                    <li>Year-round performance</li>
+                    <li>Prevents corrosion & scaling</li>
+                    <li>Compatible with most vehicles</li>
+                    </ul>
+                `
+            },
+            "windeze": {
+                title: "Nasco Windeze Glass & Multi-Surface Cleaner | 500Ml-10Litre",
+                images: [
+                    "https://nscohygiene.com/cdn/shop/files/Glass-Cleaner.png?v=1755504822&width=1946",
+                    "https://nscohygiene.com/cdn/shop/files/New-Mockup_0a36c11d-e41f-4f39-a187-6389cc6bd7fc.png?v=1755504822&width=1946",
+                    "https://nscohygiene.com/cdn/shop/files/Final_552160d5-1de7-403a-8bb5-efaba961eb46.png?v=1755504822&width=1946"
+                ],
+                description: `
+                    <p><strong>Product Description</strong><br>
+                    WINDEZE is a powerful, highly concentrated glass and multi-surface cleaner designed for streak-free shine, dust repelent and superior cleaning on glass, mirrors, windows, electronic screens*, car windshields, chrome plated bath accessories, ceramic tiles, and light fixtures.</p>
+                    <h3>Dilution Instructions</h3>
+                    <p>Dilute 50 ml WINDEZE concentrate with 450 ml clean water to make 500 ml of ready-to-use cleaner.</p>
+                `
+            },
+            "woodglow": {
+                title: "Nasco Wood Glow Premium Wood Polish Spray | 500Ml-5Litre",
+                images: [
+                    "https://nscohygiene.com/cdn/shop/files/Wood-Glow_6bff86d1-4e95-40fc-9de8-8ffeb8836449.png?v=1755503784&width=1946",
+                    "https://nscohygiene.com/cdn/shop/files/Mockups_e4080b5d-ee56-4c63-b753-30d790e451bf.png?v=1755503784&width=1946",
+                    "https://nscohygiene.com/cdn/shop/files/Wood-Glow-Bulk1.png?v=1755503784&width=1946"
+                ],
+                description: `
+                    <p><strong>Product Description</strong><br>
+                    Wood Glow is a premium-quality wood polish designed to clean, nourish, and restore the natural shine of wooden surfaces. It enhances the color and grain of wood while providing a protective layer that repels dust and dirt.</p>
+                    <h3>Directions for Use</h3>
+                    <p>Shake well. Spray lightly onto surface. Wipe with clean soft cloth.</p>
+                `
+
+
+
+
+            }
+        };
+
+        // Modal Functions
+        function openProductModal(productId) {
+            const product = products[productId];
+            if (!product) return;
+
+            document.getElementById('modal-title').innerText = product.title;
+            
+            // Inject description + WhatsApp button
+            let descHtml = product.description;
+            descHtml += '<div style="margin-top:25px; padding-top:20px; border-top:1px solid #eee; text-align:center;">';
+            descHtml += '<a href="https://wa.me/923321444065?text=I%20am%20interested%20in%20' + encodeURIComponent(product.title) + '" target="_blank" class="whatsapp-button" style="background-color:#25D366; text-decoration:none; display:inline-flex; align-items:center; padding:12px 25px; border-radius:50px; color:white; font-weight:bold; font-size:16px;">';
+            descHtml += '<i class="fab fa-whatsapp" style="margin-right:8px; font-size:20px;"></i> Inquire on WhatsApp</a>';
+            descHtml += '</div>';
+            
+            document.getElementById('modal-description').innerHTML = descHtml;
+            
+            const mainImg = document.getElementById('modal-main-img');
+            mainImg.src = product.images[0];
+            
+            const thumbsContainer = document.getElementById('modal-thumbnails');
+            thumbsContainer.innerHTML = '';
+            
+            product.images.forEach(imgSrc => {
+                const img = document.createElement('img');
+                img.src = imgSrc;
+                img.className = 'thumbnail';
+                if (imgSrc === product.images[0]) img.classList.add('active');
+                img.onclick = function() {
+                    mainImg.src = imgSrc;
+                    document.querySelectorAll('.thumbnail').forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                };
+                thumbsContainer.appendChild(img);
+            });
+
+            document.getElementById('product-modal').style.display = 'block';
+            document.body.style.overflow = 'hidden'; 
+        }
+
+        function closeProductModal() {
+            document.getElementById('product-modal').style.display = 'none';
+            document.body.style.overflow = 'auto'; 
+        }
+
+        // Close modal if clicked outside content
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = "none";
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            const accordionHeaders = document.querySelectorAll('.accordion-header');
+            
+            // 1. Tab Functionality
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Remove active class from all buttons and content
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    document.querySelectorAll('.category-content').forEach(content => {
+                        content.classList.remove('active');
+                    });
+                    
+                    // Add active class to the clicked button
+                    button.classList.add('active');
+                    
+                    // Show relevant category content
+                    const category = button.getAttribute('data-category');
+                    document.querySelector(`.category-content.${category}`).classList.add('active');
+                });
+            });
+            
+            // Default active tab on load
+            const defaultCategory = 'industrial';
+            document.querySelector(`.tab-btn.${defaultCategory}`).classList.add('active');
+            document.querySelector(`.category-content.${defaultCategory}`).classList.add('active');
+            
+            // 2. Accordion Functionality
+            accordionHeaders.forEach(header => {
+                header.addEventListener('click', () => {
+                    const content = header.nextElementSibling;
+                    const isActive = header.classList.contains('active');
+
+                    // Close all other open accordions in the same category card
+                    const currentCard = header.closest('.category-card');
+                    currentCard.querySelectorAll('.accordion-header.active').forEach(openHeader => {
+                        if (openHeader !== header) {
+                            openHeader.classList.remove('active');
+                            const openContent = openHeader.nextElementSibling;
+                            openContent.style.maxHeight = null;
+                            openContent.classList.remove('open');
+                        }
+                    });
+
+                    // Toggle current accordion
+                    if (isActive) {
+                        header.classList.remove('active');
+                        content.style.maxHeight = null;
+                        content.classList.remove('open');
+                    } else {
+                        header.classList.add('active');
+                        // Set maxHeight to scrollHeight to allow CSS transition
+                        content.style.maxHeight = content.scrollHeight + "px";
+                        content.classList.add('open');
+                    }
+                });
+            });
+            
+            // 3. Smooth scrolling
+            document.querySelectorAll('nav a, .hero-buttons a').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if(href.startsWith('#')) {
+                        e.preventDefault();
+                        const targetSection = document.querySelector(href);
+                        
+                        if (targetSection) {
+                            window.scrollTo({
+                                top: targetSection.offsetTop - 80, // Adjust for fixed header height
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                });
+            });
+
+            // Smooth scrolling for CTA button
+            document.querySelector('.cta-button').addEventListener('click', function() {
+                document.querySelector('#contact').scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+
+
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"cfb6543e268d4ceb92c8170675caa481","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+
+</body>
+</html>
+
